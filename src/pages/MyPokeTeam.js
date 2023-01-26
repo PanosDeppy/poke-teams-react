@@ -1,3 +1,3 @@
-export const MyPokeTeams = () => {
-  return <div>MyPokeTeams</div>;
+export const MyPokeTeam = () => {
+  return <div>MyPokeTeam</div>;
 };
