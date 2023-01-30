@@ -1,3 +1,5 @@
+import { Banner } from "../components/Banner";
+
 export const AboutMe = () => {
-  return <div>About Me</div>;
+  return <Banner title="About Me" />;
 };
