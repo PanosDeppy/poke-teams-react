@@ -1,3 +1,5 @@
+import { PokeForm } from "../components/PokeForm";
+
 export const PokeSearch = () => {
-  return <div>PokeSearch</div>;
+  return <PokeForm />;
 };
