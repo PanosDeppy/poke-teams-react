@@ -1,7 +1,23 @@
+:root {
+  --poke-red: #9e2a2b;
+  --rosewood: #540b0eff;
+  --poke-yellow: #fff3b0;
+  --indian-yellow: #e09f3eff;
+  --deep-space-sparkle: #335c67ff;
+
+  --poke-font: "Pokemon Solid", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  font-family: var(--poke-font);
+}
+
+.navbar {
+  color: var(--poke-yellow) !important;
+  background-color: var(--poke-red) !important;
 }

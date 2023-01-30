@@ -1,3 +1,5 @@
+import { Banner } from "../components/Banner";
+
 export const MyPokeTeam = () => {
-  return <div>MyPokeTeam</div>;
+  return <Banner title="My Poke Team" />;
 };
