@@ -25,6 +25,7 @@ export const PokeForm = () => {
         flexWrap: "wrap",
         justifyContent: "center",
         input: { color: "#9e2a2b" },
+        my: 3,
       }}
       onSubmit={handleOnSubmit}
     >
