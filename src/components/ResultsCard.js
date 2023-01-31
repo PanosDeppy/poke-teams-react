@@ -1,3 +1,5 @@
+import { StatsModal } from "./StatsModal";
+
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -15,19 +17,21 @@ export const ResultsCard = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        border: "3px solid #9e2a2b",
+        m: "auto",
       }}
     >
-      <Box
+      {/* <Box
         sx={{
           alignItems: "center",
         }}
       >
         <img src="images/sean-thomas-F6920BvzrZE-unsplash.jpg"></img>
-      </Box>
+      </Box> */}
       <CardMedia
         sx={{
           height: 250,
-          display: "flex",
+          // display: "inline-block",
         }}
         title="green iguana"
       />
@@ -47,11 +51,18 @@ export const ResultsCard = () => {
         </Typography>
       </CardContent>
       <CardActions
-        sx={{ display: "flex", justifyContent: "space-evenly", my: 3 }}
+        sx={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          mt: 0,
+          mb: 2,
+          borderTop: "3px solid #9e2a2b",
+        }}
       >
         <Button size="small">Type</Button>
         <Button size="small">Abilities</Button>
-        <Button size="small">Stats</Button>
+        {/* <Button size="small">Stats</Button> */}
+        <StatsModal />
       </CardActions>
       <Button sx={{ my: 4 }} size="small">
         Add to your team
