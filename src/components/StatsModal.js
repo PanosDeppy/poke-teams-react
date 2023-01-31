@@ -12,7 +12,19 @@ export const StatsModal = () => {
   const handleClose = () => setOpen(false);
   return (
     <Box>
-      <Button onClick={handleOpen}>Stats</Button>
+      <Button
+        sx={{
+          color: "white",
+          bgcolor: "#9e2a2b",
+          "&:hover": {
+            color: "#540b0eff",
+            bgcolor: "#e09f3eff",
+          },
+        }}
+        onClick={handleOpen}
+      >
+        Stats
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -28,7 +40,7 @@ export const StatsModal = () => {
             width: 400,
             color: "#9e2a2b",
             bgcolor: "#fff3b0d5",
-            border: "2px solid #9e2a2b",
+            border: "3px solid #9e2a2b",
             boxShadow: 20,
             p: 4,
           }}
