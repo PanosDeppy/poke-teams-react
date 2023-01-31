@@ -60,8 +60,9 @@ export const PokeForm = ({ setSearchQuery }) => {
         sx={{
           m: 1,
           width: "80%",
-          border: "2px solid #9e2a2b",
+          border: "3px solid #9e2a2b",
           borderRadius: 2,
+          backgroundColor: "white",
         }}
       >
         <OutlinedInput

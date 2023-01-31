@@ -15,9 +15,17 @@
 body {
   margin: 0;
   font-family: var(--poke-font);
+  letter-spacing: 2.5px;
+  background-color: var(--poke-yellow);
 }
 
 .navbar {
   color: var(--poke-yellow) !important;
   background-color: var(--poke-red) !important;
+}
+
+.image {
+  max-width: 80%;
+  padding: 50px 50px 0 50px;
+  margin: 0 auto;
 }
