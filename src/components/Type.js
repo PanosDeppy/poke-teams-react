@@ -59,6 +59,7 @@ export const Type = () => {
         >
           <ul className="list">
             <li>Psychic</li>
+            <li>Fighting</li>
           </ul>
         </Grid>
       </Popover>
