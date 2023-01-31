@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+import { useFormik } from "formik";
 import { useState } from "react";
 
 import Form from "@mui/material/Box";
@@ -7,16 +9,40 @@ import SearchIcon from "@mui/icons-material/Search";
 import { InputAdornment } from "@mui/material";
 import { IconButton } from "@mui/material";
 
-export const PokeForm = () => {
-  const [pokeName, setPokeName] = useState("");
+export const PokeForm = ({ setSearchQuery }) => {
+  // const onSubmit = ({ pokeName }) => {
+  //   setSearchQuery(pokeName);
+  // };
 
-  const handleOnChange = (event) => {
-    setPokeName(event.target.value);
-  };
+  // const formValue = {
+  //   pokeName: "",
+  // };
 
-  const handleOnSubmit = (event) => {
-    event.preventDefault();
-  };
+  // const validationSchema = Yup.object({
+  //   pokeName: Yup.string()
+  //     .required("Please enter a Pokemon's name.")
+  //     .min(3, "Please enter a Pokemon of minimum 3 characters")
+  //     .max(15, "Pokemon name cannot be more that 15 characters"),
+  // });
+
+  // const onChange = {
+  //   pokeName,
+  // };
+
+  // const formik = useFormik({
+  //   formValue,
+  //   validationSchema,
+  //   onSubmit,
+  //   // onChange,
+  // });
+
+  // const handleOnChange = (event) => {
+  //   setPokeName(event.target.value);
+  // };
+
+  // const handleOnSubmit = (event) => {
+  //   event.preventDefault();
+  // };
 
   return (
     <Form
@@ -25,15 +51,27 @@ export const PokeForm = () => {
         flexWrap: "wrap",
         justifyContent: "center",
         input: { color: "#9e2a2b" },
-        my: 3,
+        mt: 3,
+        mb: 5,
       }}
-      onSubmit={handleOnSubmit}
+      // onSubmit={formik.handleSubmit}
     >
-      <FormControl sx={{ m: 1, width: "80%" }}>
+      <FormControl
+        sx={{
+          m: 1,
+          width: "80%",
+          border: "2px solid #9e2a2b",
+          borderRadius: 2,
+        }}
+      >
         <OutlinedInput
+          name="pokeName"
           type="text"
           placeholder="Please type your Pokemon's name"
-          onChange={handleOnChange}
+          // value={formik.values.pokeName}
+          // error={formik.touched.pokeName && Boolean(formik.errors.pokeName)}
+          // helperText={formik.touched.pokeName && formik.errors.pokeName}
+          // onChange={formik.handleChange}
           endAdornment={
             <InputAdornment position="start">
               <IconButton type="submit">
