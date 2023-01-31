@@ -1,3 +1,4 @@
+import { Type } from "./Type";
 import { StatsModal } from "./StatsModal";
 
 import Card from "@mui/material/Card";
@@ -59,9 +60,8 @@ export const ResultsCard = () => {
           borderTop: "3px solid #9e2a2b",
         }}
       >
-        <Button size="small">Type</Button>
+        <Type />
         <Button size="small">Abilities</Button>
-        {/* <Button size="small">Stats</Button> */}
         <StatsModal />
       </CardActions>
       <Button sx={{ my: 4 }} size="small">
