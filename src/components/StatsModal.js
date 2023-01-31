@@ -39,7 +39,7 @@ export const StatsModal = () => {
             transform: "translate(-50%, -50%)",
             width: 400,
             color: "#9e2a2b",
-            bgcolor: "#fff3b0d5",
+            bgcolor: "#fff3b0",
             border: "3px solid #9e2a2b",
             boxShadow: 20,
             p: 4,

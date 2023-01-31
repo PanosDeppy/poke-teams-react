@@ -1,4 +1,5 @@
 import { Type } from "./Type";
+import { Abilities } from "./Abilities";
 import { StatsModal } from "./StatsModal";
 
 import Card from "@mui/material/Card";
@@ -7,8 +8,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { Box } from "@mui/system";
 
 export const ResultsCard = () => {
   return (
@@ -61,7 +60,7 @@ export const ResultsCard = () => {
         }}
       >
         <Type />
-        <Button size="small">Abilities</Button>
+        <Abilities />
         <StatsModal />
       </CardActions>
       <Button sx={{ my: 4 }} size="small">
