@@ -43,11 +43,15 @@ export const Type = () => {
           vertical: "bottom",
           horizontal: "left",
         }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
       >
         <Grid
           sx={{
             color: "#9e2a2b",
-            bgcolor: "#fff3b0d5",
+            bgcolor: "#fff3b0",
             border: "3px solid #9e2a2b",
             boxShadow: 20,
             p: 2,
