@@ -1,6 +1,5 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useState } from "react";
 
 import Form from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -9,40 +8,28 @@ import SearchIcon from "@mui/icons-material/Search";
 import { InputAdornment } from "@mui/material";
 import { IconButton } from "@mui/material";
 
+// SearchForm to search the Pokemon's name and form validation with formik and yup
 export const PokeForm = ({ setSearchQuery }) => {
-  // const onSubmit = ({ pokeName }) => {
-  //   setSearchQuery(pokeName);
-  // };
+  const onSubmit = ({ pokeName }) => {
+    setSearchQuery(pokeName);
+  };
 
-  // const formValue = {
-  //   pokeName: "",
-  // };
+  const initialValues = {
+    pokeName: "",
+  };
 
-  // const validationSchema = Yup.object({
-  //   pokeName: Yup.string()
-  //     .required("Please enter a Pokemon's name.")
-  //     .min(3, "Please enter a Pokemon of minimum 3 characters")
-  //     .max(15, "Pokemon name cannot be more that 15 characters"),
-  // });
+  const validationSchema = Yup.object({
+    pokeName: Yup.string()
+      .required("Please enter a Pokemon's name.")
+      .min(3, "Please enter a Pokemon of minimum 3 characters")
+      .max(15, "Pokemon name cannot be more that 15 characters"),
+  });
 
-  // const onChange = {
-  //   pokeName,
-  // };
-
-  // const formik = useFormik({
-  //   formValue,
-  //   validationSchema,
-  //   onSubmit,
-  //   // onChange,
-  // });
-
-  // const handleOnChange = (event) => {
-  //   setPokeName(event.target.value);
-  // };
-
-  // const handleOnSubmit = (event) => {
-  //   event.preventDefault();
-  // };
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
 
   return (
     <Form
@@ -54,7 +41,6 @@ export const PokeForm = ({ setSearchQuery }) => {
         mt: 3,
         mb: 5,
       }}
-      // onSubmit={formik.handleSubmit}
     >
       <FormControl
         sx={{
@@ -64,15 +50,15 @@ export const PokeForm = ({ setSearchQuery }) => {
           borderRadius: 2,
           backgroundColor: "white",
         }}
+        onSubmit={formik.handleSubmit}
       >
         <OutlinedInput
           name="pokeName"
           type="text"
           placeholder="Please type your Pokemon's name"
-          // value={formik.values.pokeName}
-          // error={formik.touched.pokeName && Boolean(formik.errors.pokeName)}
-          // helperText={formik.touched.pokeName && formik.errors.pokeName}
-          // onChange={formik.handleChange}
+          value={formik.values.pokeName}
+          onChange={formik.handleChange}
+          error={formik.touched.pokeName && Boolean(formik.errors.pokeName)}
           endAdornment={
             <InputAdornment position="start">
               <IconButton type="submit">

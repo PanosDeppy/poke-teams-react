@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
 
+// Type popover button in ResultsCard component
 export const Type = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 

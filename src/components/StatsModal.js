@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Grid } from "@mui/material";
 
+// Stats modal in ResultsCard component to present the Pokemon's stats
 export const StatsModal = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -48,7 +49,7 @@ export const StatsModal = () => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             STATS
           </Typography>
-          <Grid xs={6}>
+          <Grid item xs={6}>
             <ul className="list">
               <li>PokeStats</li>
             </ul>

@@ -6,6 +6,7 @@ import Paper from "@mui/material/Paper";
 import Fade from "@mui/material/Fade";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
+// Transition Button to reveal and hide the hidden ability in the Abilities button
 const icon = (
   <Paper sx={{ m: 1 }} elevation={4}>
     <Box

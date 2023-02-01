@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 
+// Banner with title that changes in each page
 export const Banner = ({ title }) => {
   return (
     <Box
