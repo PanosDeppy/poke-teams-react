@@ -19,20 +19,61 @@ body {
   background-color: var(--poke-yellow);
 }
 
+/* navbar style start */
+
 .navbar {
   color: var(--poke-yellow) !important;
   background-color: var(--poke-red) !important;
 }
 
-.image {
+/* navbar style end*/
+
+/* results card style start */
+
+.pokemon-image {
   max-width: 80%;
   padding: 50px 50px 0 50px;
   margin: 0 auto;
 }
+
+/* results card style end*/
+
+/* about me page style start */
+
+.about-me {
+  color: #335c67ff;
+}
+
+.about-me-bio {
+  letter-spacing: 0;
+}
+
+.panos-image {
+  max-width: 25%;
+  max-height: 25%;
+  border-style: solid;
+  border-color: #335c67ff;
+  border-radius: 16px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-me {
+  letter-spacing: 2.5px;
+}
+
+/* about me page style end */
+
+/* footer style start */
 
 .footer {
   color: var(--poke-yellow) !important;
   background-color: var(--poke-red) !important;
   max-width: 100% !important;
   letter-spacing: 0;
+  /* position: absolute;
+  bottom: 0; */
 }
+
+/* footer style end */

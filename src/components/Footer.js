@@ -9,7 +9,7 @@ export const Footer = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        py: 4,
+        py: 3,
         mt: 6.5,
         fontFamily: "Roboto",
         fontWeight: 400,
@@ -30,7 +30,7 @@ export const Footer = () => {
             },
           }}
           href="https://panosdeppy.github.io/My-React-Portfolio/"
-          underline=""
+          underline="always"
           rel="noreferrer"
           target="_blank"
         >
