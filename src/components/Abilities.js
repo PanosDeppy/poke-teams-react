@@ -7,6 +7,7 @@ import Popper from "@mui/material/Popper";
 import { Button } from "@mui/material";
 import { Grid } from "@mui/material";
 
+// Abilities popper button in ResultsCard component
 export const Abilities = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -37,7 +38,6 @@ export const Abilities = () => {
       <Popper id={id} open={open} anchorEl={anchorEl}>
         <Box
           sx={{
-            bgcolor: "background.paper",
             color: "#9e2a2b",
             bgcolor: "#fff3b0",
             border: "3px solid #9e2a2b",
@@ -46,7 +46,7 @@ export const Abilities = () => {
           }}
         >
           Main Abilities:
-          <Grid xs={6}>
+          <Grid item xs={6}>
             <ol className="list">
               <li>Ability 1</li>
               <li>Ability 2</li>

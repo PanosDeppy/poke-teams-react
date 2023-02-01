@@ -2,17 +2,16 @@ import { Type } from "./Type";
 import { Abilities } from "./Abilities";
 import { StatsModal } from "./StatsModal";
 
-import dragon from "../images/gllde.svg";
+import pokemonImage from "../images/gallade.svg";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box } from "@mui/system";
 
-export const ResultsCard = () => {
+// Card that presents all the details of the Pokemon chosen
+export const ResultsCard = ({ pokeData }) => {
   return (
     <Card
       sx={{
@@ -22,9 +21,10 @@ export const ResultsCard = () => {
         justifyContent: "center",
         border: "3px solid #9e2a2b",
         m: "auto",
+        boxShadow: 20,
       }}
     >
-      <img className="image" src={dragon} alt="pokemon" />
+      <img className="image" src={pokemonImage} alt="pokemon" />
 
       <CardContent
         sx={{
@@ -47,6 +47,7 @@ export const ResultsCard = () => {
         >
           Pokemon Name
         </Typography>
+        <div>{pokeData}</div>
       </CardContent>
       <CardActions
         sx={{
@@ -78,7 +79,6 @@ export const ResultsCard = () => {
             bgcolor: "#335c67ff",
           },
         }}
-        // variant="success"
         type="submit"
         size="small"
       >
