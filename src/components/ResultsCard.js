@@ -24,7 +24,7 @@ export const ResultsCard = ({ pokeData }) => {
         boxShadow: 20,
       }}
     >
-      <img className="image" src={pokemonImage} alt="pokemon" />
+      <img className="pokemon-image" src={pokemonImage} alt="pokemon" />
 
       <CardContent
         sx={{

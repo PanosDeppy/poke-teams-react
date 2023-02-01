@@ -1,7 +1,7 @@
 import { Banner } from "../components/Banner";
 import { PokeSearch } from "../containers/PokeSearch";
 
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
 
 export const Home = () => {
   return (
