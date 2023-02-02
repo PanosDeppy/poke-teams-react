@@ -3,6 +3,8 @@ import { Abilities } from "./Abilities";
 import { StatsModal } from "./StatsModal";
 import { AddToTeamButton } from "./AddToTeamButton";
 
+import question from "../images/question.jpg";
+
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -32,10 +34,7 @@ export const ResultsCard = ({ pokeData }) => {
           p: "50px 50px 0 50px",
           m: "0 auto",
         }}
-        src={
-          pokeData?.sprites?.other?.dream_world?.front_default ||
-          "https://via.placeholder.com/150"
-        }
+        src={pokeData?.sprites?.other?.dream_world?.front_default || question}
         alt={pokeData?.name}
       />
 

@@ -51,11 +51,11 @@ export const PokeForm = ({ setSearchQuery }) => {
           border: "3px solid #9e2a2b",
           "&.MuiFormHelperText-root.Mui-error": {
             bgcolor: "#fff3b0",
+            borderRadius: 1,
           },
         }}
       >
         <TextField
-          sx={{}}
           name="pokeName"
           type="text"
           placeholder="Please type your Pokemon's name"
