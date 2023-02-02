@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
 
 // Type popover button in ResultsCard component
-export const Type = () => {
+export const Type = ({ pokeData }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -55,12 +55,13 @@ export const Type = () => {
             bgcolor: "#fff3b0",
             border: "3px solid #9e2a2b",
             boxShadow: 20,
+            borderRadius: 1,
             p: 2,
           }}
         >
           <ul className="list">
-            <li>Psychic</li>
-            <li>Fighting</li>
+            {/* <li>{pokeData.types[0].type}</li> */}
+            <li>{pokeData.name}</li>
           </ul>
         </Grid>
       </Popover>

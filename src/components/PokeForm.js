@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
-import Form from "@mui/material/Box";
+import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
@@ -21,8 +21,7 @@ export const PokeForm = ({ setSearchQuery }) => {
   const validationSchema = Yup.object({
     pokeName: Yup.string()
       .required("Please enter a Pokemon's name.")
-      .min(3, "Please enter a Pokemon of minimum 3 characters")
-      .max(15, "Pokemon name cannot be more that 15 characters"),
+      .min(2, "Please enter a Pokemon of minimum 2 characters"),
   });
 
   const formik = useFormik({
@@ -32,7 +31,7 @@ export const PokeForm = ({ setSearchQuery }) => {
   });
 
   return (
-    <Form
+    <Box
       sx={{
         display: "flex",
         flexWrap: "wrap",
@@ -41,6 +40,8 @@ export const PokeForm = ({ setSearchQuery }) => {
         mt: 3,
         mb: 5,
       }}
+      onSubmit={formik.handleSubmit}
+      component="form"
     >
       <FormControl
         sx={{
@@ -50,7 +51,6 @@ export const PokeForm = ({ setSearchQuery }) => {
           borderRadius: 2,
           backgroundColor: "white",
         }}
-        onSubmit={formik.handleSubmit}
       >
         <OutlinedInput
           name="pokeName"
@@ -58,7 +58,9 @@ export const PokeForm = ({ setSearchQuery }) => {
           placeholder="Please type your Pokemon's name"
           value={formik.values.pokeName}
           onChange={formik.handleChange}
-          error={formik.touched.pokeName && Boolean(formik.errors.pokeName)}
+          onBlur={formik.handleBlur}
+          error={formik.touched.pokeName}
+          //&& Boolean(formik.errors.pokeName)}
           endAdornment={
             <InputAdornment position="start">
               <IconButton type="submit">
@@ -68,6 +70,6 @@ export const PokeForm = ({ setSearchQuery }) => {
           }
         />
       </FormControl>
-    </Form>
+    </Box>
   );
 };

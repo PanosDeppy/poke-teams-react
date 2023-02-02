@@ -4,6 +4,7 @@ import { AppRoutes } from "./AppRoutes";
 import { Navbar } from "./components/Navbar";
 import { Banner } from "./components/Banner";
 import { Footer } from "./components/Footer";
+import Box from "@mui/material/Box";
 
 // Our App returns the BrowserRouter that contains:
 // 1 - the AppRoutes which contains our 3 pages
@@ -12,10 +13,20 @@ import { Footer } from "./components/Footer";
 export const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Banner />
-      <AppRoutes />
-      <Footer />
+      <Box
+        sx={{
+          minHeight: "100vh",
+          overflow: "hidden",
+          display: "block",
+          position: "relative",
+          pb: "100px",
+        }}
+      >
+        <Navbar />
+        <Banner />
+        <AppRoutes />
+        <Footer />
+      </Box>
     </BrowserRouter>
   );
 };

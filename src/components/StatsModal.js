@@ -42,6 +42,7 @@ export const StatsModal = () => {
             color: "#9e2a2b",
             bgcolor: "#fff3b0",
             border: "3px solid #9e2a2b",
+            borderRadius: 1,
             boxShadow: 20,
             p: 4,
           }}

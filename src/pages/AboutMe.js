@@ -17,6 +17,7 @@ export const AboutMe = () => {
       color: "#9e2a2b",
     },
     fontSize: "2rem",
+    mb: 2,
   };
 
   return (

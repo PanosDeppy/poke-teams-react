@@ -14,6 +14,8 @@
 
 body {
   margin: 0;
+  height: 100vh;
+  position: relative;
   font-family: var(--poke-font);
   letter-spacing: 2.5px;
   background-color: var(--poke-yellow);
@@ -29,12 +31,6 @@ body {
 /* navbar style end*/
 
 /* results card style start */
-
-.pokemon-image {
-  max-width: 80%;
-  padding: 50px 50px 0 50px;
-  margin: 0 auto;
-}
 
 /* results card style end*/
 
@@ -70,10 +66,11 @@ body {
 .footer {
   color: var(--poke-yellow) !important;
   background-color: var(--poke-red) !important;
+  position: absolute;
   max-width: 100% !important;
   letter-spacing: 0;
-  /* position: absolute;
-  bottom: 0; */
+  position: absolute;
+  bottom: 0;
 }
 
 /* footer style end */

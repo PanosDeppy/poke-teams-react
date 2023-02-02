@@ -7,7 +7,7 @@ import Fade from "@mui/material/Fade";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 // Transition Button to reveal and hide the hidden ability in the Abilities button
-const icon = (
+const hiddenAbilityBox = (
   <Paper sx={{ m: 1 }} elevation={4}>
     <Box
       sx={{
@@ -31,13 +31,13 @@ export const TransitionButton = () => {
   };
 
   return (
-    <Box sx={{ height: 180 }}>
+    <Box>
       <FormControlLabel
         control={<Switch checked={checked} onChange={handleChange} />}
         label="Show Hidden Ability"
       />
       <Box sx={{ display: "flex" }}>
-        <Fade in={checked}>{icon}</Fade>
+        <Fade in={checked}>{hiddenAbilityBox}</Fade>
       </Box>
     </Box>
   );

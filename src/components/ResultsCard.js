@@ -1,17 +1,19 @@
 import { Type } from "./Type";
 import { Abilities } from "./Abilities";
 import { StatsModal } from "./StatsModal";
-
-import pokemonImage from "../images/gallade.svg";
+import { AddToTeamButton } from "./AddToTeamButton";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 // Card that presents all the details of the Pokemon chosen
 export const ResultsCard = ({ pokeData }) => {
+  //const pokeSpriteUrl = pokeData.sprites.other.dream_world.front_default;
+  const pokemonName = pokeData.name;
+
   return (
     <Card
       sx={{
@@ -20,11 +22,22 @@ export const ResultsCard = ({ pokeData }) => {
         flexDirection: "column",
         justifyContent: "center",
         border: "3px solid #9e2a2b",
-        m: "auto",
+        mx: "auto",
+        mt: 6,
+        mb: 8,
         boxShadow: 20,
       }}
     >
-      <img className="pokemon-image" src={pokemonImage} alt="pokemon" />
+      <Box
+        component="img"
+        sx={{
+          maxWidth: "80%",
+          p: "50px 50px 0 50px",
+          m: "0 auto",
+        }}
+        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData.id}.svg`}
+        alt={pokemonName}
+      />
 
       <CardContent
         sx={{
@@ -41,13 +54,13 @@ export const ResultsCard = ({ pokeData }) => {
             alignItems: "center",
             fontFamily: "Pokemon Solid",
             fontSize: "1.7rem",
+            textTransform: "capitalize",
             letterSpacing: "2.5px",
             color: "#335c67ff",
           }}
         >
-          Pokemon Name
+          {pokemonName}
         </Typography>
-        <div>{pokeData}</div>
       </CardContent>
       <CardActions
         sx={{
@@ -59,31 +72,11 @@ export const ResultsCard = ({ pokeData }) => {
           borderTop: "3px solid #9e2a2b",
         }}
       >
-        <Type />
+        <Type pokeData={pokeData} />
         <Abilities />
         <StatsModal />
       </CardActions>
-      <Button
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          mt: 1,
-          mb: 3,
-          mx: "auto",
-          width: "35%",
-          color: "#335c67ff",
-          bgcolor: "white",
-          border: "solid #335c67ff",
-          "&:hover": {
-            color: "white",
-            bgcolor: "#335c67ff",
-          },
-        }}
-        type="submit"
-        size="small"
-      >
-        Add to your team
-      </Button>
+      <AddToTeamButton />
     </Card>
   );
 };
