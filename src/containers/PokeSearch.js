@@ -11,7 +11,7 @@ import Alert from "@mui/material/Alert";
 // Container to handle the search query on the PokeForm component
 export const PokeSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [pokeData, setPokeData] = useState([]);
+  const [pokeData, setPokeData] = useState();
   const [error, setError] = useState(false);
 
   // UseEffect to handle the API call and catch the error if there is any
@@ -54,7 +54,7 @@ export const PokeSearch = () => {
           Could not find results for {searchQuery}
         </Alert>
       )}
-      <ResultsCard pokeData={pokeData} />
+      {!error && <ResultsCard pokeData={pokeData} />}
     </Box>
   );
 };

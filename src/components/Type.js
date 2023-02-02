@@ -60,8 +60,9 @@ export const Type = ({ pokeData }) => {
           }}
         >
           <ul className="list">
-            {/* <li>{pokeData.types[0].type}</li> */}
-            <li>{pokeData.name}</li>
+            {pokeData?.types.map((each) => (
+              <li>{each.type.name}</li>
+            ))}
           </ul>
         </Grid>
       </Popover>

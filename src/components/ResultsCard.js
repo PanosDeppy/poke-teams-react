@@ -11,9 +11,6 @@ import Box from "@mui/material/Box";
 
 // Card that presents all the details of the Pokemon chosen
 export const ResultsCard = ({ pokeData }) => {
-  //const pokeSpriteUrl = pokeData.sprites.other.dream_world.front_default;
-  const pokemonName = pokeData.name;
-
   return (
     <Card
       sx={{
@@ -35,8 +32,11 @@ export const ResultsCard = ({ pokeData }) => {
           p: "50px 50px 0 50px",
           m: "0 auto",
         }}
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData.id}.svg`}
-        alt={pokemonName}
+        src={
+          pokeData?.sprites?.other?.dream_world?.front_default ||
+          "https://via.placeholder.com/150"
+        }
+        alt={pokeData?.name}
       />
 
       <CardContent
@@ -59,24 +59,26 @@ export const ResultsCard = ({ pokeData }) => {
             color: "#335c67ff",
           }}
         >
-          {pokemonName}
+          {pokeData?.name}
         </Typography>
       </CardContent>
-      <CardActions
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          mt: 0,
-          mb: 2,
-          pt: 2,
-          borderTop: "3px solid #9e2a2b",
-        }}
-      >
-        <Type pokeData={pokeData} />
-        <Abilities />
-        <StatsModal />
-      </CardActions>
-      <AddToTeamButton />
+      {pokeData && (
+        <CardActions
+          sx={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            mt: 0,
+            mb: 2,
+            pt: 2,
+            borderTop: "3px solid #9e2a2b",
+          }}
+        >
+          <Type pokeData={pokeData} />
+          <Abilities />
+          <StatsModal />
+        </CardActions>
+      )}
+      {pokeData && <AddToTeamButton />}
     </Card>
   );
 };

@@ -2,11 +2,11 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
+import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
-import { InputAdornment } from "@mui/material";
-import { IconButton } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
 
 // SearchForm to search the Pokemon's name and form validation with formik and yup
 export const PokeForm = ({ setSearchQuery }) => {
@@ -47,27 +47,31 @@ export const PokeForm = ({ setSearchQuery }) => {
         sx={{
           m: 1,
           width: "80%",
+          bgcolor: "white",
           border: "3px solid #9e2a2b",
-          borderRadius: 2,
-          backgroundColor: "white",
+          "&.MuiFormHelperText-root.Mui-error": {
+            bgcolor: "#fff3b0",
+          },
         }}
       >
-        <OutlinedInput
+        <TextField
+          sx={{}}
           name="pokeName"
           type="text"
           placeholder="Please type your Pokemon's name"
           value={formik.values.pokeName}
           onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.pokeName}
-          //&& Boolean(formik.errors.pokeName)}
-          endAdornment={
-            <InputAdornment position="start">
-              <IconButton type="submit">
-                <SearchIcon />
-              </IconButton>
-            </InputAdornment>
-          }
+          error={formik.touched.pokeName && Boolean(formik.errors.pokeName)}
+          helperText={formik.touched.pokeName && formik.errors.pokeName}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton type="submit">
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
       </FormControl>
     </Box>
