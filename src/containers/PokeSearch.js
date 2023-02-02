@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import axios from "axios";
 
+import oops from "../images/oops.jpg";
+
 import { PokeForm } from "../components/PokeForm";
 import { ResultsCard } from "../components/ResultsCard";
 
@@ -40,19 +42,34 @@ export const PokeSearch = () => {
     <Box>
       <PokeForm setSearchQuery={setSearchQuery} />
       {error && (
-        <Alert
-          sx={{
-            width: "50%",
-            color: "#9e2a2b",
-            border: "3px solid #9e2a2b",
-            p: 1,
-            mb: 4,
-            mx: "auto",
-          }}
-          severity="error"
-        >
-          Could not find results for {searchQuery}
-        </Alert>
+        <Box>
+          <Alert
+            sx={{
+              width: "50%",
+              color: "#9e2a2b",
+              border: "3px solid #9e2a2b",
+              borderRadius: 2,
+              p: 1,
+              mb: 4,
+              mx: "auto",
+            }}
+            severity="error"
+          >
+            Oops! Could not find results for "{searchQuery}"
+          </Alert>
+          <Box
+            component="img"
+            sx={{
+              maxWidth: "40%",
+              display: "flex",
+              justifyContent: "center",
+              mx: "auto",
+              border: "3px solid #9e2a2b",
+              borderRadius: 20,
+            }}
+            src={oops}
+          />
+        </Box>
       )}
       {!error && <ResultsCard pokeData={pokeData} />}
     </Box>
