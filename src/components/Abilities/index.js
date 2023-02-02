@@ -42,6 +42,7 @@ export const Abilities = () => {
             bgcolor: "#fff3b0",
             border: "3px solid #9e2a2b",
             boxShadow: 20,
+            borderRadius: 1,
             p: 2,
           }}
         >

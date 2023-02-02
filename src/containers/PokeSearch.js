@@ -11,7 +11,7 @@ import Alert from "@mui/material/Alert";
 // Container to handle the search query on the PokeForm component
 export const PokeSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [pokeData, setPokeData] = useState();
+  const [pokeData, setPokeData] = useState([]);
   const [error, setError] = useState(false);
 
   // UseEffect to handle the API call and catch the error if there is any
@@ -21,19 +21,13 @@ export const PokeSearch = () => {
         try {
           const { data } = await axios.get(
             `https://pokeapi.co/api/v2/pokemon/${searchQuery}`
-
-            // {
-            //   params: {
-            //     keywords: searchQuery,
-            //   },
-            // }
           );
 
           setError(false);
-          setPokeData(data.abilities);
-          console.log(data.abilities);
-        } catch (error) {
-          setPokeData();
+          setPokeData(data);
+          console.log(data.types[0].type.name);
+        } catch (typeError) {
+          setPokeData([]);
           setError(true);
         }
       };
@@ -61,7 +55,6 @@ export const PokeSearch = () => {
         </Alert>
       )}
       <ResultsCard pokeData={pokeData} />
-      {pokeData && <ResultsCard pokeData={pokeData} />}
     </Box>
   );
 };
