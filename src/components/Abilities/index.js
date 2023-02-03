@@ -4,11 +4,11 @@ import { TransitionButton } from "./TransitionButton";
 
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
-import { Button } from "@mui/material";
-import { Grid } from "@mui/material";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 
 // Abilities popper button in ResultsCard component
-export const Abilities = () => {
+export const Abilities = ({ pokeData }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -47,10 +47,11 @@ export const Abilities = () => {
           }}
         >
           Main Abilities:
-          <Grid item xs={6}>
+          <Grid>
             <ol className="list">
-              <li>Ability 1</li>
-              <li>Ability 2</li>
+              {pokeData?.types.map((each) => (
+                <li>{each.type.name}</li>
+              ))}
             </ol>
           </Grid>
           <TransitionButton />

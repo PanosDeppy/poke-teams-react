@@ -9,16 +9,20 @@ import { ResultsCard } from "../components/ResultsCard";
 
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 // Container to handle the search query on the PokeForm component
 export const PokeSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [pokeData, setPokeData] = useState();
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   // UseEffect to handle the API call and catch the error if there is any
   useEffect(() => {
     if (searchQuery) {
+      setLoading(true);
       const fetchData = async () => {
         try {
           const { data } = await axios.get(
@@ -26,10 +30,12 @@ export const PokeSearch = () => {
           );
 
           setError(false);
+          setLoading(false);
           setPokeData(data);
           console.log(data.types[0].type.name);
         } catch (typeError) {
           setPokeData([]);
+          setLoading(false);
           setError(true);
         }
       };
@@ -57,6 +63,16 @@ export const PokeSearch = () => {
           >
             Oops! Could not find results for "{searchQuery}"
           </Alert>
+          <Backdrop
+            sx={{
+              color: "#9e2a2b",
+              bgcolor: "#fff3b069",
+              zIndex: (theme) => theme.zIndex.drawer + 1,
+            }}
+            open={loading}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
           <Box
             component="img"
             sx={{
@@ -64,6 +80,7 @@ export const PokeSearch = () => {
               display: "flex",
               justifyContent: "center",
               mx: "auto",
+              mb: 5,
               border: "3px solid #9e2a2b",
               borderRadius: 20,
             }}
