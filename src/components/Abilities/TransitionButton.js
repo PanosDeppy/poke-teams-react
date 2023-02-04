@@ -6,24 +6,7 @@ import Paper from "@mui/material/Paper";
 import Fade from "@mui/material/Fade";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-// Transition Button to reveal and hide the hidden ability in the Abilities button
-const hiddenAbilityBox = (
-  <Paper sx={{ m: 1 }} elevation={4}>
-    <Box
-      sx={{
-        color: "#9e2a2b",
-        bgcolor: "#fff3b0",
-        border: "3px solid #9e2a2b",
-        boxShadow: 20,
-        p: 2,
-      }}
-    >
-      Hidden Ability
-    </Box>
-  </Paper>
-);
-
-export const TransitionButton = () => {
+export const TransitionButton = ({ pokeData }) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
@@ -37,7 +20,25 @@ export const TransitionButton = () => {
         label="Show Hidden Ability"
       />
       <Box sx={{ display: "flex" }}>
-        <Fade in={checked}>{hiddenAbilityBox}</Fade>
+        <Fade in={checked}>
+          <Paper sx={{ m: 1 }} elevation={4}>
+            <Box
+              sx={{
+                color: "#9e2a2b",
+                bgcolor: "#fff3b0",
+                border: "3px solid #9e2a2b",
+                boxShadow: 20,
+                pr: 2,
+              }}
+            >
+              <ul className="list">
+                {pokeData?.abilities?.slice(-1).map((each) => (
+                  <li>{each.ability.name}</li>
+                ))}
+              </ul>
+            </Box>
+          </Paper>
+        </Fade>
       </Box>
     </Box>
   );

@@ -53,6 +53,7 @@ export const Type = ({ pokeData }) => {
           sx={{
             color: "#9e2a2b",
             bgcolor: "#fff3b0",
+            textTransform: "capitalize",
             border: "3px solid #9e2a2b",
             boxShadow: 20,
             borderRadius: 1,

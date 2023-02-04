@@ -2,12 +2,11 @@ import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 // Stats modal in ResultsCard component to present the Pokemon's stats
-export const StatsModal = () => {
+export const StatsModal = ({ pokeData }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -38,22 +37,24 @@ export const StatsModal = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 400,
+            width: 300,
             color: "#9e2a2b",
             bgcolor: "#fff3b0",
+            textTransform: "capitalize",
             border: "3px solid #9e2a2b",
             borderRadius: 1,
             boxShadow: 20,
-            p: 4,
+            p: 2,
           }}
         >
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            STATS
-          </Typography>
-          <Grid item xs={6}>
-            <ul className="list">
-              <li>PokeStats</li>
-            </ul>
+          <Grid>
+            <ol>
+              {pokeData?.stats.map((each) => (
+                <li>
+                  {each.stat.name} = {each.base_stat}
+                </li>
+              ))}
+            </ol>
           </Grid>
         </Box>
       </Modal>
