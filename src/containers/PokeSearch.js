@@ -32,7 +32,6 @@ export const PokeSearch = () => {
           setError(false);
           setLoading(false);
           setPokeData(data);
-          console.log(data.abilities[0].ability.name);
         } catch (typeError) {
           setPokeData([]);
           setLoading(false);
@@ -88,7 +87,7 @@ export const PokeSearch = () => {
           />
         </Box>
       )}
-      {!error && <ResultsCard pokeData={pokeData} />}
+      {!error && <ResultsCard pokeData={pokeData} searchQuery={searchQuery} />}
     </Box>
   );
 };
