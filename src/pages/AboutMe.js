@@ -66,6 +66,7 @@ export const AboutMe = () => {
               "&:hover": {
                 color: "#9e2a2b",
               },
+              pb: 2,
             }}
             href="https://panosdeppy.github.io/My-React-Portfolio/"
             underline="always"
@@ -83,7 +84,6 @@ export const AboutMe = () => {
             fontFamily: "Roboto",
             fontWeight: 500,
             fontSize: "1.2rem",
-            mt: 2,
           }}
         >
           I am a creative individual and passionate about continuous
@@ -124,39 +124,41 @@ export const AboutMe = () => {
         >
           Looking forward to working with you!
         </Box>
-
-        <Box
-          className="contact-me"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            fontSize: "1.1rem",
-          }}
-        >
-          Contact me
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Link
-            href="https://www.linkedin.com/in/panagiotis-ioannidis-panos/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <LinkedInIcon sx={styleLinks} />
-          </Link>
-          <Link
-            href="https://github.com/PanosDeppy"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <GitHubIcon sx={styleLinks} />
-          </Link>
-        </Box>
       </Stack>
+
+      <Box
+        className="contact-me"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          fontSize: "1.1rem",
+          pt: 2,
+        }}
+      >
+        Contact me
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          pt: 2,
+        }}
+      >
+        <Link
+          href="https://www.linkedin.com/in/panagiotis-ioannidis-panos/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <LinkedInIcon sx={styleLinks} />
+        </Link>
+        <Link
+          href="https://github.com/PanosDeppy"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitHubIcon sx={styleLinks} />
+        </Link>
+      </Box>
     </Container>
   );
 };
