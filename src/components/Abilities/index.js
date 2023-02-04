@@ -40,6 +40,7 @@ export const Abilities = ({ pokeData }) => {
           sx={{
             color: "#9e2a2b",
             bgcolor: "#fff3b0",
+            textTransform: "capitalize",
             border: "3px solid #9e2a2b",
             boxShadow: 20,
             borderRadius: 1,
@@ -49,12 +50,12 @@ export const Abilities = ({ pokeData }) => {
           Main Abilities:
           <Grid>
             <ol className="list">
-              {pokeData?.types.map((each) => (
-                <li>{each.type.name}</li>
+              {pokeData?.abilities?.slice(0, -1).map((each) => (
+                <li>{each.ability.name}</li>
               ))}
             </ol>
           </Grid>
-          <TransitionButton />
+          <TransitionButton pokeData={pokeData} />
         </Box>
       </Popper>
     </Box>

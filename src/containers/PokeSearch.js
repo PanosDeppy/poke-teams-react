@@ -32,7 +32,7 @@ export const PokeSearch = () => {
           setError(false);
           setLoading(false);
           setPokeData(data);
-          console.log(data.types[0].type.name);
+          console.log(data.abilities[0].ability.name);
         } catch (typeError) {
           setPokeData([]);
           setLoading(false);

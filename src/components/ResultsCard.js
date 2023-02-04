@@ -73,8 +73,8 @@ export const ResultsCard = ({ pokeData }) => {
           }}
         >
           <Type pokeData={pokeData} />
-          <Abilities />
-          <StatsModal />
+          <Abilities pokeData={pokeData} />
+          <StatsModal pokeData={pokeData} />
         </CardActions>
       )}
       {pokeData && <AddToTeamButton />}
