@@ -3,7 +3,9 @@ import { Abilities } from "./Abilities";
 import { StatsModal } from "./StatsModal";
 import { AddToTeamButton } from "./AddToTeamButton";
 
-import question from "../images/question.jpg";
+import questionMarksGif from "../images/questionMarksGif.gif";
+import sorry from "../images/sorryy.png";
+import letsgo from "../images/letsgo.png";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -12,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 // Card that presents all the details of the Pokemon chosen
-export const ResultsCard = ({ pokeData }) => {
+export const ResultsCard = ({ pokeData, searchQuery }) => {
   return (
     <Card
       sx={{
@@ -27,16 +29,60 @@ export const ResultsCard = ({ pokeData }) => {
         boxShadow: 20,
       }}
     >
-      <Box
-        component="img"
-        sx={{
-          maxWidth: "80%",
-          p: "50px 50px 0 50px",
-          m: "0 auto",
-        }}
-        src={pokeData?.sprites?.other?.dream_world?.front_default || question}
-        alt={pokeData?.name}
-      />
+      {!searchQuery && (
+        <Box>
+          <Typography
+            sx={{
+              textAlign: "center",
+              pt: 4,
+              px: 4,
+              fontFamily: "Pokemon Solid, sans-serif",
+              fontSize: "1.1rem",
+              letterSpacing: "2px",
+              color: "#9e2a2b",
+            }}
+          >
+            Are you going to search for a Pokemon, or what?
+          </Typography>
+          <Box
+            component="img"
+            sx={{
+              p: "50px 50px 0 50px",
+              mx: "auto",
+            }}
+            src={questionMarksGif}
+            alt="question-mark"
+          />
+          <Box
+            component="img"
+            sx={{
+              width: "30%",
+              display: "flex",
+              justifyContent: "center",
+              mx: "auto",
+            }}
+            src={letsgo}
+            alt="lets-go"
+          />
+        </Box>
+      )}
+
+      {searchQuery && (
+        <Box
+          component="img"
+          sx={{
+            maxWidth: "80%",
+            p: "50px 50px 0 50px",
+            m: "0 auto",
+          }}
+          src={
+            pokeData?.sprites?.other?.dream_world?.front_default ||
+            pokeData?.sprites?.front_default ||
+            sorry
+          }
+          alt={pokeData?.name}
+        />
+      )}
 
       <CardContent
         sx={{
