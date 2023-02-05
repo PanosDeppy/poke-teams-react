@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+// Select dropdown to choose an existing team to add your Pokemon to.
 export const SelectExistingTeams = () => {
   const [team, setTeam] = useState("");
 
@@ -32,14 +33,14 @@ export const SelectExistingTeams = () => {
           color: "white",
           fontFamily: "Roboto",
         }}
-        id="demo-select-small"
+        // id="demo-select-small"
       >
-        {" "}
+        {/* {" "} */}
         EXISTING TEAMS
       </InputLabel>
       <Select
-        labelId="demo-select-small"
-        id="demo-select-small"
+        // labelId="demo-select-small"
+        // id="demo-select-small"
         // value={age}
         // label="Age"
         onChange={handleChange}

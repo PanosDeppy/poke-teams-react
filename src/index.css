@@ -37,7 +37,7 @@ body {
 /* about me page style start */
 
 .about-me {
-  color: #335c67ff;
+  color: var(--deep-space-sparkle);
 }
 
 .about-me-bio {
@@ -53,7 +53,7 @@ body {
   max-width: 25%;
   max-height: 25%;
   border-style: solid;
-  border-color: #335c67ff;
+  border-color: var(--deep-space-sparkle);
   border-radius: 16px;
   margin: 10px auto;
   display: flex;
