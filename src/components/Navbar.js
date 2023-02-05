@@ -81,11 +81,11 @@ export const Navbar = () => {
                 </Typography>
               </MenuItem>
 
-              {/* MyPokeTeam page */}
+              {/* MyPokeTeams page */}
               <MenuItem
                 onClick={() => {
                   handleCloseNavMenu();
-                  navigate("/my-poke-team");
+                  navigate("/my-poke-teams");
                 }}
               >
                 <Typography
@@ -96,7 +96,7 @@ export const Navbar = () => {
                     },
                   }}
                 >
-                  MyPokeTeam
+                  MyPokeTeams
                 </Typography>
               </MenuItem>
 
@@ -150,10 +150,10 @@ export const Navbar = () => {
               Home
             </Button>
 
-            {/* MyPokeTeam page */}
+            {/* MyPokeTeams page */}
             <Button
               onClick={() => {
-                navigate("/my-poke-team");
+                navigate("/my-poke-teams");
               }}
               sx={{
                 my: 2,
@@ -167,7 +167,7 @@ export const Navbar = () => {
                 },
               }}
             >
-              MyPokeTeam
+              MyPokeTeams
             </Button>
 
             {/* AboutMe page */}
