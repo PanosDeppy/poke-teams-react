@@ -1,6 +1,9 @@
+import * as Yup from "yup";
+import { useFormik } from "formik";
+
 import { useState } from "react";
 
-import { AddToTeamModal } from "./AddToTeamModal";
+import { AddToNewTeamModal } from "./AddToNewTeamModal";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -25,12 +28,34 @@ const style = {
 // Button and form to add a new team.
 
 export const NewTeamForm = ({ dialogButtonStyling }) => {
+  const [newTeamName, setNewTeamName] = useState("");
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const onSubmit = ({ teamName }) => {
+    setNewTeamName(teamName);
+  };
+
+  const initialValues = {
+    teamName: "",
+  };
+
+  const validationSchema = Yup.object({
+    teamName: Yup.string()
+      .required("Please enter a name for your team.")
+      .max(20, "Please enter a name of maximum 20 characters"),
+  });
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
+
   return (
-    <div>
+    <Box>
       <Button sx={dialogButtonStyling} onClick={handleOpen}>
         New Team
       </Button>
@@ -51,37 +76,24 @@ export const NewTeamForm = ({ dialogButtonStyling }) => {
             }}
             noValidate
             autoComplete="off"
+            onSubmit={formik.handleSubmit}
           >
             <TextField
               required
               id="filled-required"
-              label="Required"
               variant="filled"
+              name="teamName"
+              type="text"
+              placeholder="Please type a name"
+              value={formik.values.teamName}
+              onChange={formik.handleChange}
+              error={formik.touched.teamName && Boolean(formik.errors.teamName)}
+              helperText={formik.touched.teamName && formik.errors.teamName}
             />
-            <Button
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                mx: "auto",
-                textAlign: "center",
-                color: "#335c67ff",
-                bgcolor: "white",
-                "&:hover": {
-                  color: "white",
-                  bgcolor: "#335c67ff",
-                },
-                border: "3px solid #335c67ff",
-                borderRadius: 1,
-                mt: 1,
-              }}
-              variant="contained"
-              type="submit"
-            >
-              Submit
-            </Button>
+            <AddToNewTeamModal />
           </Box>
         </Box>
       </Modal>
-    </div>
+    </Box>
   );
 };
