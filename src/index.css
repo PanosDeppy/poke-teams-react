@@ -55,6 +55,7 @@ body {
   border-style: solid;
   border-color: var(--deep-space-sparkle);
   border-radius: 16px;
+  border-width: 3.5px;
   margin: 10px auto;
   display: flex;
   justify-content: center;

@@ -47,10 +47,10 @@ export const AboutMe = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            fontSize: "1.2rem",
+            fontSize: "1.1rem",
           }}
         >
-          Frontend Developer | Illustrator | Musician | Author
+          Frontend Developer | Illustrator | Musician | Author | Couple Coach
         </Box>
         <Box
           sx={{
@@ -88,7 +88,7 @@ export const AboutMe = () => {
         >
           I am a creative individual and passionate about continuous
           self-improvement, gaining knowledge in various sectors, acquiring new
-          skills, expanding my horizons, and challenging myself to become better
+          skills, expanding my horizons and challenging myself to become better
           at what I do every day.
         </Box>
         <Box
@@ -111,9 +111,9 @@ export const AboutMe = () => {
         >
           Besides coding, I have a strong background in healthcare and music
           composition and I am a published author in the sector of personal
-          development and romantic relationships. In my free time, I enjoy
-          playing the bass guitar, illustrating, writing, yoga, martial arts,
-          travelling, and spending quality time with my wife.
+          development and romantic relationships with extended studys in life
+          and couple coaching as long as many other personal development
+          sciences.
         </Box>
         <Box
           sx={{
@@ -122,7 +122,18 @@ export const AboutMe = () => {
             fontSize: "1.2rem",
           }}
         >
-          Looking forward to working with you!
+          In my free time, I enjoy playing the bass guitar, illustration,
+          writing, yoga, martial arts, travelling, and spending quality time
+          with my wife.
+        </Box>
+        <Box
+          sx={{
+            fontFamily: "Roboto",
+            fontWeight: 500,
+            fontSize: "1.2rem",
+          }}
+        >
+          I am looking forward to working with you!
         </Box>
       </Stack>
 
