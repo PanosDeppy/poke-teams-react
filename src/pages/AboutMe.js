@@ -62,9 +62,9 @@ export const AboutMe = () => {
           Check my React Portfolio
           <Link
             sx={{
-              color: "#335c67ff",
+              color: "#9e2a2b",
               "&:hover": {
-                color: "#9e2a2b",
+                color: "#e09f3eff",
               },
               pb: 2,
             }}
