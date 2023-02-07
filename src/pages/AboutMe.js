@@ -110,9 +110,9 @@ export const AboutMe = () => {
           }}
         >
           Besides coding, I have a strong background in healthcare and music
-          composition and I am a published author in the sector of personal
-          development and romantic relationships with extended studys in life
-          and couple coaching as long as many other personal development
+          composition. I am a published author in the sector of personal
+          development and romantic relationships with extended studies in life
+          and couple coaching as well as many other personal development
           sciences.
         </Box>
         <Box

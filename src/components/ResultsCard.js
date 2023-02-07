@@ -123,7 +123,7 @@ export const ResultsCard = ({ pokeData, searchQuery }) => {
           <StatsModal pokeData={pokeData} />
         </CardActions>
       )}
-      {pokeData && <AddToTeamButton />}
+      {pokeData && <AddToTeamButton pokeData={pokeData} />}
     </Card>
   );
 };
