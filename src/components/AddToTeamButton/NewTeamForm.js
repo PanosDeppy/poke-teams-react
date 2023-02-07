@@ -26,10 +26,10 @@ const style = {
 };
 
 // Button and form to add a new team.
-
-export const NewTeamForm = ({ dialogButtonStyling }) => {
+export const NewTeamForm = ({ dialogButtonStyling, pokeData }) => {
   const [newTeamName, setNewTeamName] = useState("");
 
+  // handle submit and form validation
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -53,6 +53,8 @@ export const NewTeamForm = ({ dialogButtonStyling }) => {
     validationSchema,
     onSubmit,
   });
+
+  console.log(formik.values.teamName);
 
   return (
     <Box>
@@ -90,7 +92,7 @@ export const NewTeamForm = ({ dialogButtonStyling }) => {
               error={formik.touched.teamName && Boolean(formik.errors.teamName)}
               helperText={formik.touched.teamName && formik.errors.teamName}
             />
-            <AddToNewTeamModal />
+            <AddToNewTeamModal newTeamName={newTeamName} pokeData={pokeData} />
           </Box>
         </Box>
       </Modal>
