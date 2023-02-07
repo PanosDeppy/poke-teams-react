@@ -10,6 +10,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useApp } from "../../context/AppProvider";
+import { getDataFromLS } from "../../utils/getDataFromLS";
 
 const style = {
   position: "absolute",
@@ -26,16 +28,28 @@ const style = {
 };
 
 // Button and form to add a new team.
-export const NewTeamForm = ({ dialogButtonStyling, pokeData }) => {
+export const NewTeamForm = ({ dialogButtonStyling }) => {
+  const { currentPokemon } = useApp();
   const [newTeamName, setNewTeamName] = useState("");
 
   // handle submit and form validation
   const [open, setOpen] = useState(false);
+  const [openAddNewTeamModal, setOpenAddNewTeamModal] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const onSubmit = ({ teamName }) => {
+    const teamsFromLS = getDataFromLS("teams", []);
+
+    teamsFromLS.push({
+      name: teamName,
+      pokemon: [],
+    });
+
+    localStorage.setItem("teams", JSON.stringify(teamsFromLS));
+
     setNewTeamName(teamName);
+    setOpenAddNewTeamModal(true);
   };
 
   const initialValues = {
@@ -54,7 +68,21 @@ export const NewTeamForm = ({ dialogButtonStyling, pokeData }) => {
     onSubmit,
   });
 
-  console.log(formik.values.teamName);
+  const buttonStyle = {
+    display: "flex",
+    justifyContent: "center",
+    mx: "auto",
+    textAlign: "center",
+    color: "#335c67ff",
+    bgcolor: "white",
+    "&:hover": {
+      color: "white",
+      bgcolor: "#335c67ff",
+    },
+    border: "3px solid #335c67ff",
+    borderRadius: 1,
+    mt: 1,
+  };
 
   return (
     <Box>
@@ -92,8 +120,21 @@ export const NewTeamForm = ({ dialogButtonStyling, pokeData }) => {
               error={formik.touched.teamName && Boolean(formik.errors.teamName)}
               helperText={formik.touched.teamName && formik.errors.teamName}
             />
-            <AddToNewTeamModal newTeamName={newTeamName} pokeData={pokeData} />
+            <Button
+              sx={buttonStyle}
+              variant="contained"
+              type="submit"
+              onClick={handleOpen}
+            >
+              Submit
+            </Button>
           </Box>
+          <AddToNewTeamModal
+            open={openAddNewTeamModal}
+            setOpenAddNewTeamModal={setOpenAddNewTeamModal}
+            newTeamName={newTeamName}
+            currentPokemon={currentPokemon}
+          />
         </Box>
       </Modal>
     </Box>

@@ -6,9 +6,12 @@ import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import { useApp } from "../../context/AppProvider";
 
 // Abilities popper button in ResultsCard component
-export const Abilities = ({ pokeData }) => {
+export const Abilities = () => {
+  const { currentPokemon } = useApp();
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -50,12 +53,12 @@ export const Abilities = ({ pokeData }) => {
           Main Abilities:
           <Grid>
             <ol className="list">
-              {pokeData?.abilities?.slice(0, -1).map((each) => (
-                <li>{each.ability.name}</li>
+              {currentPokemon?.abilities?.slice(0, -1).map((each) => (
+                <li key={each.ability.name}>{each.ability.name}</li>
               ))}
             </ol>
           </Grid>
-          <TransitionButton pokeData={pokeData} />
+          <TransitionButton />
         </Box>
       </Popper>
     </Box>

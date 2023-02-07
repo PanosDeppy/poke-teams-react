@@ -4,9 +4,12 @@ import Popover from "@mui/material/Popover";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { useApp } from "../context/AppProvider";
 
 // Type popover button in ResultsCard component
-export const Type = ({ pokeData }) => {
+export const Type = () => {
+  const { currentPokemon } = useApp();
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -61,8 +64,8 @@ export const Type = ({ pokeData }) => {
           }}
         >
           <ul className="list">
-            {pokeData?.types.map((each) => (
-              <li>{each.type.name}</li>
+            {currentPokemon?.types.map((each) => (
+              <li key={each.type.name}>{each.type.name}</li>
             ))}
           </ul>
         </Grid>

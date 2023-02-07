@@ -4,9 +4,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Grid from "@mui/material/Grid";
+import { useApp } from "../context/AppProvider";
 
 // Stats modal in ResultsCard component to present the Pokemon's stats
-export const StatsModal = ({ pokeData }) => {
+export const StatsModal = () => {
+  const { currentPokemon } = useApp();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -49,8 +51,8 @@ export const StatsModal = ({ pokeData }) => {
         >
           <Grid>
             <ol>
-              {pokeData?.stats.map((each) => (
-                <li>
+              {currentPokemon?.stats.map((each) => (
+                <li key={each.stat.name}>
                   {each.stat.name} = {each.base_stat}
                 </li>
               ))}

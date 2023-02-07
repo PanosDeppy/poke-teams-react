@@ -12,9 +12,12 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useApp } from "../context/AppProvider";
 
 // Card that presents all the details of the Pokemon chosen
-export const ResultsCard = ({ pokeData, searchQuery }) => {
+export const ResultsCard = ({ searchQuery }) => {
+  const { currentPokemon } = useApp();
+
   return (
     <Card
       sx={{
@@ -76,11 +79,11 @@ export const ResultsCard = ({ pokeData, searchQuery }) => {
             m: "0 auto",
           }}
           src={
-            pokeData?.sprites?.other?.dream_world?.front_default ||
-            pokeData?.sprites?.front_default ||
+            currentPokemon?.sprites?.other?.dream_world?.front_default ||
+            currentPokemon?.sprites?.front_default ||
             sorry
           }
-          alt={pokeData?.name}
+          alt={currentPokemon?.name}
         />
       )}
 
@@ -104,10 +107,10 @@ export const ResultsCard = ({ pokeData, searchQuery }) => {
             color: "#335c67ff",
           }}
         >
-          {pokeData?.name}
+          {currentPokemon?.name}
         </Typography>
       </CardContent>
-      {pokeData && (
+      {currentPokemon && (
         <CardActions
           sx={{
             display: "flex",
@@ -118,12 +121,12 @@ export const ResultsCard = ({ pokeData, searchQuery }) => {
             borderTop: "3px solid #9e2a2b",
           }}
         >
-          <Type pokeData={pokeData} />
-          <Abilities pokeData={pokeData} />
-          <StatsModal pokeData={pokeData} />
+          <Type />
+          <Abilities />
+          <StatsModal />
         </CardActions>
       )}
-      {pokeData && <AddToTeamButton pokeData={pokeData} />}
+      {currentPokemon && <AddToTeamButton />}
     </Card>
   );
 };

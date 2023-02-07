@@ -17,23 +17,17 @@ const styleBoxes = {
 };
 
 export const MyPokeTeams = () => {
-  const [pokemon, setPokemon] = useState([]);
-
-  useEffect(() => {
-    const pokemonFromLS = getDataFromLS("pokemon", []);
-
-    setPokemon(pokemonFromLS);
-  }, []);
+  const [teams, setTeams] = useState(getDataFromLS("teams", []));
 
   return (
     <Container>
       <Box>
         <Banner title="My Poke Teams" />
       </Box>
-      {pokemon.length === 0 ? (
+      {teams.length === 0 ? (
         <MyPokeTeamsDefault />
       ) : (
-        <TeamsCreated pokemon={pokemon} />
+        <TeamsCreated teams={teams} />
       )}
     </Container>
   );
