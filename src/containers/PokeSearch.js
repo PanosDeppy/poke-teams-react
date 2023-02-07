@@ -11,11 +11,12 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import { useApp } from "../context/AppProvider";
 
 // Container to handle the search query on the PokeForm component
 export const PokeSearch = () => {
+  const { currentPokemon, setCurrentPokemon } = useApp();
   const [searchQuery, setSearchQuery] = useState("");
-  const [pokeData, setPokeData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -31,9 +32,9 @@ export const PokeSearch = () => {
 
           setError(false);
           setLoading(false);
-          setPokeData(data);
+          setCurrentPokemon(data);
         } catch (typeError) {
-          setPokeData([]);
+          setCurrentPokemon();
           setLoading(false);
           setError(true);
         }
@@ -87,7 +88,7 @@ export const PokeSearch = () => {
           />
         </Box>
       )}
-      {!error && <ResultsCard pokeData={pokeData} searchQuery={searchQuery} />}
+      {!error && <ResultsCard searchQuery={searchQuery} />}
     </Box>
   );
 };

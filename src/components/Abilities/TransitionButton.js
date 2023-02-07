@@ -5,8 +5,11 @@ import Switch from "@mui/material/Switch";
 import Paper from "@mui/material/Paper";
 import Fade from "@mui/material/Fade";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { useApp } from "../../context/AppProvider";
 
-export const TransitionButton = ({ pokeData }) => {
+export const TransitionButton = () => {
+  const { currentPokemon } = useApp();
+
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
@@ -32,8 +35,8 @@ export const TransitionButton = ({ pokeData }) => {
               }}
             >
               <ul className="list">
-                {pokeData?.abilities?.slice(-1).map((each) => (
-                  <li>{each.ability.name}</li>
+                {currentPokemon?.abilities?.slice(-1).map((each) => (
+                  <li key={each.ability.name}>{each.ability.name}</li>
                 ))}
               </ul>
             </Box>

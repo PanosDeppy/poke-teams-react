@@ -1,11 +1,16 @@
 import { Team } from "./Team";
 
 import Box from "@mui/material/Box";
+import { useApp } from "../context/AppProvider";
 
-export const TeamsCreated = ({ pokemon }) => {
+export const TeamsCreated = () => {
+  const { teams } = useApp();
   return (
     <Box>
-      <Team pokemon={pokemon} />
+      HELLO
+      {teams.map((team) => (
+        <Team key={team.name} team={team} />
+      ))}
     </Box>
   );
 };

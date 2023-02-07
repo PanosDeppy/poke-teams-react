@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
+import { useApp } from "../../context/AppProvider";
 
 // Modal to confirm to the user that they successfully added a Pokemon to their chosen team
 
@@ -54,48 +55,47 @@ const activeButtonStyle = {
   mt: 1,
 };
 
-export const AddToNewTeamModal = ({ newTeamName, pokeData }) => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const pokemonFromLS = getDataFromLS("pokemon", []);
+export const AddToNewTeamModal = ({
+  newTeamName,
+  currentPokemon,
+  open,
+  setOpenAddNewTeamModal,
+}) => {
+  const { teams } = useApp();
 
   const [savedData, setSavedData] = useState(
-    pokemonFromLS.some((each) => each.id === pokeData.id)
+    teams.some((each) => each.id === currentPokemon.id)
   );
 
-  const handleClick = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
     if (!savedData) {
-      const pokemonFromLS = getDataFromLS("pokemon", []);
+      const teamsFromLS = getDataFromLS("teams", []);
 
-      pokemonFromLS.push(pokeData);
+      const teamToAddToIndex = teamsFromLS.findIndex((team) => {
+        return team.name === newTeamName;
+      });
 
-      localStorage.setItem("pokemon", JSON.stringify(pokemonFromLS));
+      const teamToAddTo = teamsFromLS[teamToAddToIndex];
+
+      teamToAddTo.pokemon.push(currentPokemon);
+
+      localStorage.setItem("teams", JSON.stringify(teamsFromLS));
 
       setSavedData(true);
-
-      console.log(pokemonFromLS);
     }
   };
 
   return (
     <Box>
-      <Button
-        sx={buttonStyle}
-        variant="contained"
-        type="submit"
-        onClick={handleOpen}
-      >
-        Submit
-      </Button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={() => setOpenAddNewTeamModal(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} component="form" onSubmit={handleSubmit}>
           <Typography
             sx={{
               textAlign: "center",
@@ -109,11 +109,10 @@ export const AddToNewTeamModal = ({ newTeamName, pokeData }) => {
             <Button
               sx={!savedData ? buttonStyle : activeButtonStyle}
               type="submit"
-              onClick={handleClick}
             >
               {!savedData
-                ? `Add ${pokeData?.name} to team "${newTeamName}"`
-                : `${pokeData?.name} was added to team "${newTeamName}"`}
+                ? `Add ${currentPokemon?.name} to team "${newTeamName}"`
+                : `${currentPokemon?.name} was added to team "${newTeamName}"`}
             </Button>
           </Typography>
           <Link

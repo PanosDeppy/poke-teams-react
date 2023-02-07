@@ -15,23 +15,23 @@ import Box from "@mui/material/Box";
 // 2 - and our Navbar, Banner and Footer as a constant in all of our pages (These 3 components are outside of the AppRoutes to be consistent in each page.)
 export const App = () => {
   return (
-    // <AppProvider>
-    <BrowserRouter>
-      <Box
-        sx={{
-          minHeight: "100vh",
-          overflow: "hidden",
-          display: "block",
-          position: "relative",
-          pb: "100px",
-        }}
-      >
-        <Navbar />
-        <Banner />
-        <AppRoutes />
-        <Footer />
-      </Box>
-    </BrowserRouter>
-    // </AppProvider>
+    <AppProvider>
+      <BrowserRouter>
+        <Box
+          sx={{
+            minHeight: "100vh",
+            overflow: "hidden",
+            display: "block",
+            position: "relative",
+            pb: "100px",
+          }}
+        >
+          <Navbar />
+          <Banner />
+          <AppRoutes />
+          <Footer />
+        </Box>
+      </BrowserRouter>
+    </AppProvider>
   );
 };

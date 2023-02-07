@@ -10,6 +10,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+import { useApp } from "../../context/AppProvider";
 
 const dialogButtonStyling = {
   display: "flex",
@@ -27,7 +28,8 @@ const dialogButtonStyling = {
 };
 
 // Button to chose if you want to place the Pokemon either in a new team or an existing one.
-export const AddToTeamButton = ({ pokeData }) => {
+export const AddToTeamButton = () => {
+  const { teams } = useApp();
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -87,11 +89,8 @@ export const AddToTeamButton = ({ pokeData }) => {
             }}
           >
             <Stack>
-              <NewTeamForm
-                dialogButtonStyling={dialogButtonStyling}
-                pokeData={pokeData}
-              />
-              <SelectExistingTeams />
+              <NewTeamForm dialogButtonStyling={dialogButtonStyling} />
+              {teams.length !== 0 && <SelectExistingTeams />}
             </Stack>
           </DialogActions>
         </Box>
