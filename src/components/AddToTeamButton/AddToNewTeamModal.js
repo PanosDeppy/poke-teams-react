@@ -64,7 +64,7 @@ export const AddToNewTeamModal = ({
   const { teams } = useApp();
 
   const [savedData, setSavedData] = useState(
-    teams.some((each) => each.id === currentPokemon.id)
+    teams.some((each) => each.name === newTeamName)
   );
 
   const handleSubmit = (event) => {

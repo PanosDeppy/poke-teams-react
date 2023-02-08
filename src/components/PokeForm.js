@@ -50,9 +50,6 @@ export const PokeForm = ({ setSearchQuery }) => {
           border: "3px solid #9e2a2b",
           borderRadius: 2,
           bgcolor: "white",
-          // "MuiFormHelperText-root.Mui-error": {
-          //   bgcolor: "#fff3b0",
-          // },
         }}
       >
         <TextField
