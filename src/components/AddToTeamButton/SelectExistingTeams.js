@@ -1,53 +1,38 @@
-import { useState } from "react";
-
-import { useApp } from "../../context/AppProvider";
-import { getDataFromLS } from "../../utils/getDataFromLS";
-
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-// Select dropdown to choose an existing team to add your Pokemon to.
-export const SelectExistingTeams = () => {
-  const { teams, currentPokemon } = useApp();
-  const [team, setTeam] = useState("");
+import { useApp } from "../../context/AppProvider";
+import { getDataFromLS } from "../../utils/getDataFromLS";
 
-  const handleChange = (event) => {
-    setTeam(event.target.value);
-  };
+export const SelectExistingTeams = ({ handleClose }) => {
+  const { teams, setTeams, currentPokemon } = useApp();
 
-  const handleClick = ({ team }) => {
+  const handleChange = ({ target }) => {
+    const teamName = target.value;
+
     const teamsFromLS = getDataFromLS("teams", []);
 
-    // const teamToAddToIndex = teamsFromLS.findIndex((team) => {
-    //   return team.name === team.name;
-    // });
+    const teamIndex = teamsFromLS.findIndex(
+      (teamFromLS) => teamFromLS.name === teamName
+    );
 
-    // const teamToAddTo = teamsFromLS.filter((team) => team.name === team.name);
+    const teamToEdit = teamsFromLS[teamIndex];
 
-    let teamsIndex = teamsFromLS.reduce((existingTeams, team, i) => {
-      if (team.name === team.name) {
-        existingTeams.push(i);
-        return existingTeams;
-      }
-    }, []);
+    teamToEdit.pokemon.push(currentPokemon);
 
-    teamsIndex.map((i) => {
-      console.log(teams[i].name);
-      console.log(teamsFromLS[i].name);
+    localStorage.setItem("teams", JSON.stringify([...teamsFromLS]));
 
-      if (teams[i].name === teamsFromLS[i].name) {
-        teamsFromLS[i].pokemon.push(currentPokemon);
-      }
-    });
+    setTeams([...teamsFromLS]);
 
-    localStorage.setItem("teams", JSON.stringify(teamsFromLS));
+    handleClose();
   };
+
   return (
     <FormControl
       sx={{
-        m: 1,
+        m: 3,
         width: 170,
         bgcolor: "#9e2a2b",
         "&:hover": {
@@ -58,6 +43,7 @@ export const SelectExistingTeams = () => {
         fontFamily: "Roboto",
       }}
       size="small"
+      variant="filled"
     >
       <InputLabel
         sx={{
@@ -67,7 +53,7 @@ export const SelectExistingTeams = () => {
       >
         EXISTING TEAMS
       </InputLabel>
-      <Select value={team} onChange={handleChange} onClick={handleClick}>
+      <Select onChange={handleChange}>
         {teams.map((each) => (
           <MenuItem
             key={each.name}
