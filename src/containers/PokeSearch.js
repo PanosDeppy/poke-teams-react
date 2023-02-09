@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import Box from "@mui/material/Box";
+import Alert from "@mui/material/Alert";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import axios from "axios";
 
 import oops from "../images/oops.jpg";
 
+import { useEffect, useState } from "react";
+
 import { PokeForm } from "../components/PokeForm";
 import { ResultsCard } from "../components/ResultsCard";
-
-import Box from "@mui/material/Box";
-import Alert from "@mui/material/Alert";
-import Backdrop from "@mui/material/Backdrop";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useApp } from "../context/AppProvider";
 
 // Container to handle the search query on the PokeForm component

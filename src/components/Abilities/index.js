@@ -1,12 +1,12 @@
-import { useState } from "react";
-
-import { TransitionButton } from "./TransitionButton";
-
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+
 import { useApp } from "../../context/AppProvider";
+import { TransitionButton } from "./TransitionButton";
+
+import { useState } from "react";
 
 // Abilities popper button in ResultsCard component
 export const Abilities = () => {

@@ -1,4 +1,5 @@
-import { Box, Container } from "@mui/system";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 
 import "@fontsource/roboto/700.css";

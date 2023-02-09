@@ -1,9 +1,10 @@
-import { useState } from "react";
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Grid from "@mui/material/Grid";
+
+import { useState } from "react";
+
 import { useApp } from "../context/AppProvider";
 
 // Stats modal in ResultsCard component to present the Pokemon's stats

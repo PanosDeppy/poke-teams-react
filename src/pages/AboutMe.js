@@ -1,14 +1,13 @@
-import { Banner } from "../components/Banner";
-
-import panosImage from "../images/panos_image.jpg";
-
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+
+import panosImage from "../images/panos_image.jpg";
+
+import { Banner } from "../components/Banner";
 
 export const AboutMe = () => {
   const styleLinks = {

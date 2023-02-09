@@ -1,10 +1,11 @@
-import { useState } from "react";
-
 import Box from "@mui/material/Box";
 import Switch from "@mui/material/Switch";
 import Paper from "@mui/material/Paper";
 import Fade from "@mui/material/Fade";
 import FormControlLabel from "@mui/material/FormControlLabel";
+
+import { useState } from "react";
+
 import { useApp } from "../../context/AppProvider";
 
 export const TransitionButton = () => {

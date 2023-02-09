@@ -1,7 +1,7 @@
-import notfound from "../images/not-found.gif";
-
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+
+import notfound from "../images/not-found.gif";
 
 export const PageNotFound = () => {
   return (

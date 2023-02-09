@@ -1,10 +1,10 @@
-import unfortunately from "../images/unfortunately.png";
-import ticking from "../images/ticking.gif";
-
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
+
+import unfortunately from "../images/unfortunately.png";
+import ticking from "../images/ticking.gif";
 
 const styleBoxes = {
   display: "flex",
