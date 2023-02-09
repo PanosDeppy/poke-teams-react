@@ -1,9 +1,7 @@
+import Stack from "@mui/material/Stack";
+
 import { useApp } from "../context/AppProvider";
-
 import { Team } from "./Team";
-
-import Box from "@mui/material/Box";
-import { Container, Grid, Stack } from "@mui/material";
 
 export const TeamsCreated = () => {
   const { teams } = useApp();

@@ -1,8 +1,3 @@
-import sorry from "../images/sorryy.png";
-
-import { getDataFromLS } from "../utils/getDataFromLS";
-import { useApp } from "../context/AppProvider";
-
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -11,10 +6,15 @@ import CardContent from "@mui/material/CardContent";
 import ClearIcon from "@mui/icons-material/Clear";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
+
+import sorry from "../images/sorryy.png";
+
+import { getDataFromLS } from "../utils/getDataFromLS";
+import { useApp } from "../context/AppProvider";
 
 export const Team = ({ team }) => {
-  const { setTeams } = useApp();
+  const { setTeams, setCurrentPokemon, currentPokemon } = useApp();
 
   const handleClickRemoveTeam = () => {
     const teamsFromLS = getDataFromLS("teams", []);
@@ -28,6 +28,20 @@ export const Team = ({ team }) => {
     setTeams(teams);
   };
 
+  // const handleClickRemovePokemon = () => {
+  //   const teamsFromLS = getDataFromLS("teams", []);
+
+  //   const pokemon = teamsFromLS.filter((each) => {
+  //     console.log(each.pokemon);
+  //     console.log(team.pokemon);
+  //     return each.pokemon !== team.pokemon;
+  //   });
+
+  //   localStorage.setItem("teams", JSON.stringify(pokemon));
+
+  //   setTeams(pokemon);
+  // };
+
   return (
     <Container
       sx={{
@@ -40,15 +54,10 @@ export const Team = ({ team }) => {
         mx: "auto",
       }}
     >
-      <InputAdornment
-
-      // position="end"
-      >
+      <InputAdornment>
         <IconButton onClick={handleClickRemoveTeam}>
           <ClearIcon
             sx={{
-              // display: "flex",
-              // alignItems: "flex-end",
               border: "2px solid #335c67ff",
               borderRadius: "50%",
               bgcolor: "#335c67ff",
@@ -131,10 +140,7 @@ export const Team = ({ team }) => {
                   >
                     {pokemon?.name}
                   </Typography>
-                  <InputAdornment
-
-                  // position="end"
-                  >
+                  <InputAdornment position="start">
                     <IconButton
                       sx={{
                         position: "relative",
@@ -147,7 +153,6 @@ export const Team = ({ team }) => {
                     >
                       <ClearIcon
                         sx={{
-                          // position: "absolute",
                           border: "2px solid #335c67ff",
                           borderRadius: "50%",
                           bgcolor: "#335c67ff",

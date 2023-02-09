@@ -1,12 +1,12 @@
-import { useState } from "react";
-
-import { getDataFromLS } from "../../utils/getDataFromLS";
-
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
+
+import { useState } from "react";
+
+import { getDataFromLS } from "../../utils/getDataFromLS";
 import { useApp } from "../../context/AppProvider";
 
 // Modal to confirm to the user that they successfully added a Pokemon to their chosen team
@@ -36,7 +36,7 @@ const buttonStyle = {
   },
   border: "3px solid #335c67ff",
   borderRadius: 1,
-  mt: 1,
+  my: 2,
 };
 
 const activeButtonStyle = {
@@ -52,7 +52,7 @@ const activeButtonStyle = {
   },
   border: "3px solid #335c67ff",
   borderRadius: 1,
-  mt: 1,
+  my: 2,
 };
 
 export const AddToNewTeamModal = ({
@@ -121,13 +121,37 @@ export const AddToNewTeamModal = ({
               "&:hover": {
                 color: "#e09f3eff",
               },
+              display: "flex",
+              justifyContent: "center",
             }}
             href="/my-poke-teams"
             underline="always"
             rel="noreferrer"
-            paddingLeft={2}
           >
             go to "MyPokeTeams" page
+          </Link>
+          <Typography
+            sx={{
+              color: "#9e2a2b",
+              textAlign: "center",
+            }}
+          >
+            or
+          </Typography>
+          <Link
+            sx={{
+              color: "#9e2a2b",
+              "&:hover": {
+                color: "#e09f3eff",
+              },
+              display: "flex",
+              justifyContent: "center",
+            }}
+            href="/"
+            underline="always"
+            rel="noreferrer"
+          >
+            add another Pokemon
           </Link>
         </Box>
       </Modal>
