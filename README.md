@@ -21,6 +21,13 @@ See the demo [here](https://pages.github.com/)
 ## Screenshots
 
 - For Desktop:
+
   ![home](./assets/desktop/1-home.png)
+  ![pokemon](./assets/desktop/2-pokemon.png)
+  ![pokebuttons](./assets/desktop/3-pokebuttons.png)
+  ![createteam](./assets/desktop/4-createteam.png)
+  ![submitteam](./assets/desktop/5-submitteam.png)
+  ![addpokemontoteam](./assets/desktop/6-addpokemontoteam.png)
+  ![mypoketeams](./assets/desktop/7-mypoketeams.png)
 
 - For Mobile:
