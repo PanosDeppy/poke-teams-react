@@ -90,7 +90,9 @@ export const AddToTeamButton = () => {
           >
             <Stack>
               <NewTeamForm dialogButtonStyling={dialogButtonStyling} />
-              {teams.length !== 0 && <SelectExistingTeams />}
+              {teams.length !== 0 && (
+                <SelectExistingTeams handleClose={handleClose} />
+              )}
             </Stack>
           </DialogActions>
         </Box>

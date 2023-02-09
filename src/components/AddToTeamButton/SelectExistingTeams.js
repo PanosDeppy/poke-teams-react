@@ -1,24 +1,38 @@
-import { useState } from "react";
-
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+
 import { useApp } from "../../context/AppProvider";
+import { getDataFromLS } from "../../utils/getDataFromLS";
 
-// Select dropdown to choose an existing team to add your Pokemon to.
-export const SelectExistingTeams = () => {
-  const { teams } = useApp();
-  const [team, setTeam] = useState("");
+export const SelectExistingTeams = ({ handleClose }) => {
+  const { teams, setTeams, currentPokemon } = useApp();
 
-  const handleChange = (event) => {
-    setTeam(event.target.value);
+  const handleChange = ({ target }) => {
+    const teamName = target.value;
+
+    const teamsFromLS = getDataFromLS("teams", []);
+
+    const teamIndex = teamsFromLS.findIndex(
+      (teamFromLS) => teamFromLS.name === teamName
+    );
+
+    const teamToEdit = teamsFromLS[teamIndex];
+
+    teamToEdit.pokemon.push(currentPokemon);
+
+    localStorage.setItem("teams", JSON.stringify([...teamsFromLS]));
+
+    setTeams([...teamsFromLS]);
+
+    handleClose();
   };
 
   return (
     <FormControl
       sx={{
-        m: 1,
+        m: 3,
         width: 170,
         bgcolor: "#9e2a2b",
         "&:hover": {
@@ -29,76 +43,33 @@ export const SelectExistingTeams = () => {
         fontFamily: "Roboto",
       }}
       size="small"
+      variant="filled"
     >
       <InputLabel
         sx={{
           color: "white",
           fontFamily: "Roboto",
         }}
-        // id="demo-select-small"
       >
-        {/* {" "} */}
         EXISTING TEAMS
       </InputLabel>
-      <Select
-        // labelId="demo-select-small"
-        // id="demo-select-small"
-        // value={age}
-        // label="Age"
-        onChange={handleChange}
-      >
-        <MenuItem
-          sx={{
-            color: "#335c67ff",
-            bgcolor: "white",
-            "&:hover": {
-              color: "white",
-              bgcolor: "#335c67ff",
-            },
-          }}
-          value=""
-        >
-          <em>None</em>
-        </MenuItem>
-        <MenuItem
-          sx={{
-            color: "#335c67ff",
-            bgcolor: "white",
-            "&:hover": {
-              color: "white",
-              bgcolor: "#335c67ff",
-            },
-          }}
-          value={10}
-        >
-          Team 1
-        </MenuItem>
-        <MenuItem
-          sx={{
-            color: "#335c67ff",
-            bgcolor: "white",
-            "&:hover": {
-              color: "white",
-              bgcolor: "#335c67ff",
-            },
-          }}
-          value={20}
-        >
-          Team 2
-        </MenuItem>
-        <MenuItem
-          sx={{
-            color: "#335c67ff",
-            bgcolor: "white",
-            "&:hover": {
-              color: "white",
-              bgcolor: "#335c67ff",
-            },
-          }}
-          value={30}
-        >
-          Team 3
-        </MenuItem>
+      <Select onChange={handleChange}>
+        {teams.map((each) => (
+          <MenuItem
+            key={each.name}
+            value={each.name}
+            sx={{
+              color: "#335c67ff",
+              bgcolor: "white",
+              "&:hover": {
+                color: "white",
+                bgcolor: "#335c67ff",
+              },
+            }}
+          >
+            {each.name}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

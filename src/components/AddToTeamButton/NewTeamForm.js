@@ -41,15 +41,19 @@ export const NewTeamForm = ({ dialogButtonStyling }) => {
   const onSubmit = ({ teamName }) => {
     const teamsFromLS = getDataFromLS("teams", []);
 
-    teamsFromLS.push({
-      name: teamName,
-      pokemon: [],
-    });
+    if (!teamsFromLS.some((each) => each.name === teamName)) {
+      teamsFromLS.push({
+        name: teamName,
+        pokemon: [],
+      });
 
-    localStorage.setItem("teams", JSON.stringify(teamsFromLS));
+      localStorage.setItem("teams", JSON.stringify(teamsFromLS));
 
-    setNewTeamName(teamName);
-    setOpenAddNewTeamModal(true);
+      setNewTeamName(teamName);
+      setOpenAddNewTeamModal(true);
+    } else {
+      alert("Team already exists, please enter a new team name ^_^");
+    }
   };
 
   const initialValues = {
