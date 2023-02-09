@@ -80,3 +80,12 @@ body {
 }
 
 /* footer style end */
+
+/* media queries */
+
+@media only screen and (max-width: 600px) {
+  .panos-image {
+    max-width: 50%;
+    max-height: 50%;
+  }
+}

@@ -54,7 +54,7 @@ export const Team = ({ team }) => {
         mx: "auto",
       }}
     >
-      <InputAdornment>
+      <InputAdornment position="start">
         <IconButton onClick={handleClickRemoveTeam}>
           <ClearIcon
             sx={{
@@ -89,12 +89,25 @@ export const Team = ({ team }) => {
               <Card
                 sx={{
                   maxWidth: 200,
+                  // height: {
+                  //   xs: 120,
+                  //   sm: 130,
+                  //   md: 1,
+                  //   lg: 1,
+                  //   xl: 1,
+                  // },
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
                   border: "4px solid #9e2a2b",
                   borderRadius: 2,
-                  pt: 1,
+                  pt: {
+                    xs: 0,
+                    sm: 0,
+                    md: 1,
+                    lg: 1,
+                    xl: 1,
+                  },
                   mx: "auto",
                   mt: 0,
                   mb: 3,
@@ -104,9 +117,15 @@ export const Team = ({ team }) => {
                 <Box
                   component="img"
                   sx={{
-                    height: "130px",
+                    height: "90px",
                     maxWidth: "80%",
-                    p: "10px 10px 0 10px",
+                    p: {
+                      xs: 0,
+                      sm: 0,
+                      md: "10px 10px 0 10px",
+                      lg: "10px 10px 0 10px",
+                      xl: "10px 10px 0 10px",
+                    },
                     m: "0 auto",
                   }}
                   src={
@@ -129,7 +148,13 @@ export const Team = ({ team }) => {
                     variant="h5"
                     component="div"
                     sx={{
-                      display: "flex",
+                      display: {
+                        xs: "none",
+                        sm: "none",
+                        md: "flex",
+                        lg: "flex",
+                        xl: "flex",
+                      },
                       alignItems: "center",
                       fontFamily: "Pokemon Solid",
                       fontSize: "1rem",
@@ -143,6 +168,13 @@ export const Team = ({ team }) => {
                   <InputAdornment position="start">
                     <IconButton
                       sx={{
+                        display: {
+                          xs: "none",
+                          sm: "none",
+                          md: "flex",
+                          lg: "flex",
+                          xl: "flex",
+                        },
                         position: "relative",
                         top: "25px",
                         left: "35px",

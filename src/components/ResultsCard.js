@@ -26,7 +26,12 @@ export const ResultsCard = ({ searchQuery }) => {
         flexDirection: "column",
         justifyContent: "center",
         border: "3px solid #9e2a2b",
-        mx: "auto",
+        mx: {
+          xs: 2.5,
+          sm: "auto",
+          md: "auto",
+          lg: "auto",
+        },
         mt: 6,
         mb: 8,
         boxShadow: 20,
@@ -50,8 +55,19 @@ export const ResultsCard = ({ searchQuery }) => {
           <Box
             component="img"
             sx={{
-              p: "50px 50px 0 50px",
-              mx: "auto",
+              p: {
+                xs: "0 50px 0 0",
+                sm: "0 50px",
+                md: "50px 50px 0 50px",
+                lg: "50px 50px 0 50px",
+                xl: "50px 50px 0 50px",
+              },
+              mx: {
+                xs: 0,
+                sm: 0,
+                md: "auto",
+                lg: "auto",
+              },
             }}
             src={questionMarksGif}
             alt="question-mark"

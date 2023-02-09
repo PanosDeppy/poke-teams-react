@@ -7,7 +7,12 @@ export const Banner = ({ title }) => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        fontSize: "1.7rem",
+        fontSize: {
+          xs: "0.8rem",
+          sm: "1.3rem",
+          md: "1.5rem",
+          lg: "1.7rem",
+        },
         color: "#9e2a2b",
         my: 1,
       }}

@@ -7,7 +7,7 @@ export const TeamsCreated = () => {
   const { teams } = useApp();
   return (
     <Stack
-      direction="horizontal"
+      direction="row"
       gap={4}
       sx={{ display: "flex", flexWrap: "wrap", justifyContent: "around" }}
     >
