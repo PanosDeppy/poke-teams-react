@@ -1,12 +1,12 @@
-import * as Yup from "yup";
-import { useFormik } from "formik";
-
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
+
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 // SearchForm to search the Pokemon's name and form validation with formik and yup
 export const PokeForm = ({ setSearchQuery }) => {

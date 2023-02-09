@@ -1,10 +1,3 @@
-import * as Yup from "yup";
-import { useFormik } from "formik";
-
-import { useState } from "react";
-
-import { AddToNewTeamModal } from "./AddToNewTeamModal";
-
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -12,6 +5,13 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useApp } from "../../context/AppProvider";
 import { getDataFromLS } from "../../utils/getDataFromLS";
+
+import * as Yup from "yup";
+import { useFormik } from "formik";
+
+import { useState } from "react";
+
+import { AddToNewTeamModal } from "./AddToNewTeamModal";
 
 const style = {
   position: "absolute",

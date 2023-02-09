@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+
+import { useState } from "react";
+
 import { getDataFromLS } from "../utils/getDataFromLS";
 
 import { Banner } from "../components/Banner";
 import { MyPokeTeamsDefault } from "../components/MyPokeTeamsDefault";
 import { TeamsCreated } from "../components/TeamsCreated";
-
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
 
 const styleBoxes = {
   display: "flex",

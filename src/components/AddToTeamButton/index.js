@@ -1,8 +1,3 @@
-import { useState } from "react";
-
-import { SelectExistingTeams } from "./SelectExistingTeams";
-import { NewTeamForm } from "./NewTeamForm";
-
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -10,7 +5,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+
+import { useState } from "react";
+
 import { useApp } from "../../context/AppProvider";
+import { SelectExistingTeams } from "./SelectExistingTeams";
+import { NewTeamForm } from "./NewTeamForm";
 
 const dialogButtonStyling = {
   display: "flex",

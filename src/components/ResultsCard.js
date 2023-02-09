@@ -1,17 +1,17 @@
-import { Type } from "./Type";
-import { Abilities } from "./Abilities";
-import { StatsModal } from "./StatsModal";
-import { AddToTeamButton } from "./AddToTeamButton";
-
-import questionMarksGif from "../images/questionMarksGif.gif";
-import sorry from "../images/sorryy.png";
-import letsgo from "../images/letsgo.png";
-
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+
+import questionMarksGif from "../images/questionMarksGif.gif";
+import sorry from "../images/sorryy.png";
+import letsgo from "../images/letsgo.png";
+
+import { Type } from "./Type";
+import { Abilities } from "./Abilities";
+import { StatsModal } from "./StatsModal";
+import { AddToTeamButton } from "./AddToTeamButton";
 import { useApp } from "../context/AppProvider";
 
 // Card that presents all the details of the Pokemon chosen
