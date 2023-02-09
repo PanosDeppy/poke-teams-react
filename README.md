@@ -16,7 +16,7 @@ Lastly, the app has a third page, which contains a brief bio about me and links 
 
 ## Link to My Poke Teams
 
-See the demo [here](https://pages.github.com/)
+See the demo [here](https://poke-teams-react-panosdeppy.vercel.app/)
 
 ## Screenshots
 
