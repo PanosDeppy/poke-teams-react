@@ -23,7 +23,7 @@ export const AboutMe = () => {
     <Container className="about-me">
       <Banner title="About Me" />
       <Stack spacing={1}>
-        <Box>
+        <Box sx={{}}>
           <img
             className="panos-image"
             src={panosImage}
@@ -46,7 +46,13 @@ export const AboutMe = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            fontSize: "1.1rem",
+            textAlign: "center",
+            fontSize: {
+              xs: "0.9rem",
+              sm: "1rem",
+              md: "1.1rem",
+              lg: "1.1rem",
+            },
           }}
         >
           Frontend Developer | Illustrator | Musician | Author | Couple Coach
@@ -55,7 +61,12 @@ export const AboutMe = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            fontSize: "1.1rem",
+            fontSize: {
+              xs: "0.9rem",
+              sm: "1rem",
+              md: "1.1rem",
+              lg: "1.1rem",
+            },
           }}
         >
           Check my React Portfolio

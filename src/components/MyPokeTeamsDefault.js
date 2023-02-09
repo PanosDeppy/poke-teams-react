@@ -5,12 +5,19 @@ import Link from "@mui/material/Link";
 
 import unfortunately from "../images/unfortunately.png";
 import ticking from "../images/ticking.gif";
+import { textAlign } from "@mui/system";
 
 const styleBoxes = {
   display: "flex",
   justifyContent: "center",
+  textAlign: "center",
   mx: "auto",
-  fontSize: "1.2rem",
+  fontSize: {
+    xs: "1rem",
+    sm: "1rem",
+    md: "1.2rem",
+    lg: "1.2rem",
+  },
   color: "#335c67ff",
 };
 
