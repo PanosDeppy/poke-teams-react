@@ -32,8 +32,8 @@ See the demo [here](https://poke-teams-react-panosdeppy.vercel.app/)
 
 - For Mobile:
 
-  ![1-homeinitial](./assets/desktop/1-homeinitial.png)
-  ![2-homepokemon](./assets/desktop/2-homepokemon.png)
-  ![3-addtoteam](./assets/desktop/3-addtoteam.png)
-  ![4-mypoketeamss](./assets/desktop/4-mypoketeamss.png)
-  ![5-mypoketeamspokemon](./assets/desktop/5-mypoketeamspokemon.png)
+  ![1-homeinitial](./assets/mobile/1-homeinitial.png)
+  ![2-homepokemon](./assets/mobile/2-homepokemon.png)
+  ![3-addtoteam](./assets/mobile/3-addtoteam.png)
+  ![4-mypoketeamss](./assets/mobile/4-mypoketeamss.png)
+  ![5-mypoketeamspokemon](./assets/mobile/5-mypoketeamspokemon.png)
